@@ -9,7 +9,6 @@ $arrAnimals = [
 ];
 $new_array = [];
 foreach ($arrAnimals as $continent => $animals) {
-    $new_continent[] = $continent;
     foreach ($animals as $animal) {
         $count = substr_count($animal, ' ');
         if ($count === 1) {
