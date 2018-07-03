@@ -7,6 +7,8 @@ $arrAnimals = [
     'Australia' => ['Camelus dromaderius', 'Antilocapra americana', 'Galago', 'Mustela erminea', 'Tachyglossus aculeatus'],
     'Antarctica' => ['Damaliscus dorcas', 'Hyaena', 'Equus zebra', 'Canis dingo', 'Dugong dugong']
 ];
+$first_world = [];
+$second_word = [];
 $new_array = [];
 foreach ($arrAnimals as $continent => $animals) {
     foreach ($animals as $animal) {
