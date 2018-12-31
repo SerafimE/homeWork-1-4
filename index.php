@@ -1,34 +1,44 @@
-<?php
-$arrAnimals = [
-    'Eurasia' => ['Neotragus pygmaeus', 'Ovis', 'Canis lupus', 'Vombatus hirsutus', 'Lutra'],
-    'North America' => ['Perameles nasuta', 'Desmana moschata', 'Gazella', 'Lepus timidus', 'Sus scrofa'],
-    'South America' => ['Bison', 'Castor canadensis', 'Lama', 'Procyon', 'Delphinus delphis'],
-    'Africa' => ['Addax nasomaculatus', 'Papio cynocephalus', 'Syncerus caffer', 'Bos', 'Osphranter'],
-    'Australia' => ['Camelus dromaderius', 'Antilocapra americana', 'Galago', 'Mustela erminea', 'Tachyglossus aculeatus'],
-    'Antarctica' => ['Damaliscus dorcas', 'Hyaena', 'Equus zebra', 'Canis dingo', 'Dugong dugong']
+<?php declare(strict_types=1);
+$animalsInRegion = [
+    'Africa' => ['Giraffa camelopardalis rothschildi', 'Loxodonta'],
+    'Antarctica' => ['Aptenodytes forsteri'],
+    'Australia' => ['Macropus'],
+    'Eurasia' => ['Pteromys volans', 'Bison bonasus', 'Apodemus agrarius'],
+    'North America' => ['Mammuthus columbi', 'Bison bison'],
+    'South America' => ['Eunectes murinus']
 ];
-$first_world = [];
-$second_word = [];
-$new_array = [];
-foreach ($arrAnimals as $continent => $animals) {
+
+$firstWord = [];
+$secondWord = [];
+$newArray = [];
+$fantasy = [];
+$arrayTooWords = [];
+$fantasyWithRegion = [];
+foreach ($animalsInRegion as $continent => $animals) {
     foreach ($animals as $animal) {
         $count = substr_count($animal, ' ');
         if ($count === 1) {
-            $new_array[$continent][] = $animal;
+            $newArray[$continent][] = $animal;
+            $arrayTooWords[] = $animal;
             $rows_two = explode(' ', $animal);
-            $first_world[] = $rows_two[0];
-            $second_word[] = $rows_two[1];
+            $firstWord[] = $rows_two[0];
+            $secondWord[] = $rows_two[1];
         }
     }
 }
-echo '<h1>Массив животных, названия которых состоят из двух слов:</h1>' . '<pre>';
-print_r($new_array);
-echo '</pre>';
+echo '<h1>Задание "Жестокое обращение с животными"</h1>';
+
+echo '<h3>1. Исходный массив:</h3>';
+var_dump($animalsInRegion);
 echo '<hr>';
-/*============================================*/
-shuffle($second_word);
-echo '<h1>Выдуманные животные</h1>';
-foreach ($second_word as $last) {
-    $first = array_shift($first_world);
-    echo $fictitious_animals[] = $first . ' ' . $last . '<br>';
+shuffle($secondWord);
+foreach ($firstWord as $k => $v) {
+    $fantasy[] = $v . ' ' . $secondWord[$k];
 }
+echo '<h3>2. Названия, состоящие из двух слов:</h3>';
+echo implode(',<br> ', $arrayTooWords);
+echo '<hr>';
+
+echo '<h3>3. "Фантазийные" названия:</h3>';
+echo implode(',<br>', $fantasy);
+echo '<hr>';
